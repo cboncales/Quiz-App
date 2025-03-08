@@ -343,6 +343,14 @@ function handleTimeout() {
   nextQuestion();
 }
 
+// Utility function to shuffle an array (Fisher-Yates algorithm)
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
 function startQuiz() {
   const username = document.getElementById("username").value.trim();
   const difficulty = document.querySelector(
@@ -370,6 +378,7 @@ function startQuiz() {
     questions = insaneQuestions;
   }
 
+  shuffleArray(questions);
   loadQuestion();
 }
 
@@ -387,7 +396,10 @@ function loadQuestion() {
   document.getElementById("options").innerHTML = "";
   selectedAnswer = null; // Reset selection
 
-  questionData.options.forEach((option) => {
+  let shuffledOptions = [...questionData.options]; // Clone the answer choices to prevent modification
+  shuffleArray(shuffledOptions); // Shuffle options
+
+  shuffledOptions.forEach((option) => {
     const button = document.createElement("button");
     button.textContent = option;
     button.classList.add(
@@ -468,6 +480,7 @@ function restartQuiz() {
   document.getElementById("result-screen").classList.add("hidden");
   document.getElementById("question-screen").classList.remove("hidden");
 
+  shuffleArray(questions); // Shuffle the questions
   loadQuestion(); // Load the first question
 }
 
