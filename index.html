@@ -13,7 +13,7 @@
 
     <main
       id="quiz-container"
-      class="bg-transparent p-6 rounded-lg shadow-lg w-96 text-center"
+      class="bg-transparent p-6 rounded-lg text-center mt-6 grid grid-cols-2 gap-16"
     >
       <!-- Welcome section -->
       <div id="welcome-screen" class="">
@@ -22,6 +22,65 @@
           Start Quiz
         </button>
       </div>
+
+      <!-- Question section -->
+      <section id="question-screen" class="hidden">
+        <div class="mb-4 text-left font-medium">
+          Question <span id="question-number">1</span>/10
+        </div>
+        <div id="progress-bar" class="w-full bg-gray-200 h-2 rounded mb-4">
+          <div
+            id="progress"
+            class="bg-blue-500 h-2 rounded"
+            style="width: 0%"
+          ></div>
+        </div>
+        <h2 id="question-text" class="text-xl font-semibold mb-4">
+          Loading...
+        </h2>
+        <div id="options" class="space-y-2">
+          <!-- Options will be generated dynamically -->
+        </div>
+        <button
+          class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg hidden"
+          id="next-btn"
+        >
+          Next
+        </button>
+      </section>
+
+      <!-- Result section -->
+      <section id="result-screen" class="hidden">
+        <h2 class="text-2xl font-bold mb-4">Quiz Completed!</h2>
+        <p class="text-lg">Your Score: <span id="score">0</span>/10</p>
+        <button class="mt-4 bg-green-500 text-white px-4 py-2 rounded-lg">
+          Try Again
+        </button>
+        <button class="mt-4 bg-green-500 text-white px-4 py-2 rounded-lg">
+          Return Home
+        </button>
+      </section>
+
+      <!-- Leaderboard section -->
+      <section class="bg-white p-6 rounded-lg shadow-lg w-96 text-center mt-6">
+        <h1 class="text-2xl font-bold mb-4">Leaderboard</h1>
+        <table class="w-full border-collapse border border-gray-300">
+          <thead>
+            <tr class="bg-gray-200">
+              <th class="border border-gray-300 px-4 py-2">Rank</th>
+              <th class="border border-gray-300 px-4 py-2">Username</th>
+              <th class="border border-gray-300 px-4 py-2">Score</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboard-body">
+            <!-- Scores will be dynamically inserted here -->
+          </tbody>
+        </table>
+        <button class="mt-4 bg-red-500 text-white px-4 py-2 rounded-lg">
+          Clear Scores
+        </button>
+      </section>
     </main>
+    <script src="js/quiz.js"></script>
   </body>
 </html>
