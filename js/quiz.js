@@ -75,11 +75,12 @@ let score = 0;
 let selectedAnswer = null;
 
 let timer;
-let timeLeft = 100;
+const timeLimit = 10; // Set time limit per question
+let timeLeft = timeLimit;
 
 function startTimer() {
   clearInterval(timer); // Clear any existing timer
-  timeLeft = 100; // Reset timer for each question
+  timeLeft = timeLimit; // Reset timer for each question
 
   document.getElementById("timer").textContent = `Time Left: ${timeLeft}s`;
 
@@ -89,13 +90,18 @@ function startTimer() {
 
     if (timeLeft <= 0) {
       clearInterval(timer);
-      autoSubmit(); // Move to next question if time runs out
+      handleTimeout(); // Move to next question if time runs out
     }
   }, 1000);
 }
 
-function autoSubmit() {
+function handleTimeout() {
   alert("Time's up! Moving to next question.");
+
+  if (selectedAnswer === null) {
+    // If no answer was selected, score remains 0
+    document.getElementById("next-btn").classList.remove("hidden");
+  }
   nextQuestion();
 }
 
@@ -149,6 +155,7 @@ function updateProgress() {
 
 function selectAnswer(button, option, correct) {
   selectedAnswer = option; // Update selected answer
+
   document.querySelectorAll(".answer-option").forEach((btn) => {
     btn.classList.remove("bg-blue-400", "text-white"); // Reset styling
     btn.classList.add("bg-gray-200");
