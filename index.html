@@ -41,42 +41,27 @@
         <div class="mt-4">
           <p class="text-lg font-semibold mb-2">Select Difficulty:</p>
           <div class="flex justify-center space-x-4">
-            <label>
+            <label class="text-sm">
               <input
                 type="radio"
                 name="difficulty"
-                value="basic"
+                value="C"
                 class="mr-1"
                 checked
               />
-              Basic
+              Basic(C)
             </label>
-            <label>
-              <input
-                type="radio"
-                name="difficulty"
-                value="intermediate"
-                class="mr-1"
-              />
-              Intermediate
+            <label class="text-sm">
+              <input type="radio" name="difficulty" value="B" class="mr-1" />
+              Intermediate(B)
             </label>
-            <label>
-              <input
-                type="radio"
-                name="difficulty"
-                value="advanced"
-                class="mr-1"
-              />
-              Advanced
+            <label class="text-sm">
+              <input type="radio" name="difficulty" value="A" class="mr-1" />
+              Advanced(A)
             </label>
-            <label>
-              <input
-                type="radio"
-                name="difficulty"
-                value="insane"
-                class="mr-1"
-              />
-              Insane
+            <label class="text-sm">
+              <input type="radio" name="difficulty" value="S" class="mr-1" />
+              Insane(S)
             </label>
           </div>
         </div>
@@ -143,18 +128,13 @@
         class="bg-white p-6 rounded-lg shadow-lg w-72 text-center absolute top-12 right-0 mt-6 mr-6"
       >
         <h1 class="text-2xl mb-4">Leaderboard</h1>
-        <table class="w-full border-collapse border border-gray-300">
+        <table class="w-full border-collapse">
           <thead>
-            <tr class="bg-gray-200">
-              <th class="border border-gray-300 px-4 py-2 text-sm font-light">
-                Rank
-              </th>
-              <th class="border border-gray-300 px-4 py-2 text-sm font-light">
-                Name
-              </th>
-              <th class="border border-gray-300 px-4 py-2 text-sm font-light">
-                Score
-              </th>
+            <tr class="">
+              <th class="px-2 py-2 text-sm font-light">Rank</th>
+              <th class="px-2 py-2 text-sm font-light">Name</th>
+              <th class="px-2 py-2 text-sm font-light">Difficulty</th>
+              <th class="px-2 py-2 text-sm font-light">Score</th>
             </tr>
           </thead>
           <tbody id="leaderboard-body">
