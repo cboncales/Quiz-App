@@ -200,9 +200,9 @@ function loadLeaderboard() {
     .sort((a, b) => b.score - a.score) // Sort by highest score
     .forEach((entry, index) => {
       const row = `<tr>
-                    <td class="p-2 border">${index + 1}</td>
-                    <td class="p-2 border">${entry.name}</td>
-                    <td class="p-2 border">${entry.score}</td>
+                    <td class="p-2 border text-sm font-light">${index + 1}</td>
+                    <td class="p-2 border text-sm font-light">${entry.name}</td>
+                    <td class="p-2 border text-sm font-light">${entry.score}</td>
                 </tr>`;
       tbody.innerHTML += row;
     });
