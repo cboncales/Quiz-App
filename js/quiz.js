@@ -72,7 +72,32 @@ const questions = [
 
 let currentQuestionIndex = 0;
 let score = 0;
-let selectedAnswer = null; // Track selected answer
+let selectedAnswer = null;
+
+let timer;
+let timeLeft = 100;
+
+function startTimer() {
+  clearInterval(timer); // Clear any existing timer
+  timeLeft = 100; // Reset timer for each question
+
+  document.getElementById("timer").textContent = `Time Left: ${timeLeft}s`;
+
+  timer = setInterval(() => {
+    timeLeft--;
+    document.getElementById("timer").textContent = `Time Left: ${timeLeft}s`;
+
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+      autoSubmit(); // Move to next question if time runs out
+    }
+  }, 1000);
+}
+
+function autoSubmit() {
+  alert("Time's up! Moving to next question.");
+  nextQuestion();
+}
 
 function startQuiz() {
   const username = document.getElementById("username").value.trim();
@@ -111,7 +136,15 @@ function loadQuestion() {
     document.getElementById("options").appendChild(button);
   });
 
-  document.getElementById("next-btn").classList.add("hidden"); // Hide Next initially
+  document.getElementById("next-btn").classList.add("hidden");
+
+  updateProgress();
+  startTimer();
+}
+
+function updateProgress() {
+  const progress = (currentQuestionIndex / questions.length) * 100;
+  document.getElementById("progress").style.width = `${progress}%`;
 }
 
 function selectAnswer(button, option, correct) {
@@ -134,6 +167,8 @@ function checkAnswer(selected, correct) {
 }
 
 function nextQuestion() {
+  clearInterval(timer); // Stop the timer
+
   if (selectedAnswer === questions[currentQuestionIndex].answer) {
     score++; // Only add score if correct answer is selected
   }
