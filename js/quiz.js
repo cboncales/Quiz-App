@@ -582,12 +582,12 @@ function loadLeaderboard() {
   leaderboard
     .sort((a, b) => b.score - a.score) // Sort by highest score
     .forEach((entry, index) => {
-      const row = `<tr>
-                    <td class="p-2 border text-sm font-light">${index + 1}</td>
-                    <td class="p-2 border text-sm font-light">${entry.name}</td>
-                    <td class="p-2 border text-sm font-light">${entry.difficulty}</td>
-                    <td class="p-2 border text-sm font-light">${entry.score}</td>
-                </tr>`;
+      const row = `
+                    <p class="p-1 text-xs text-white font-light">${index + 1}</p>
+                    <p class="p-1 text-xs text-white font-light">${entry.name}</p>
+                    <p class="p-1 text-xs text-white font-light">${entry.difficulty}</p>
+                    <p class="p-1 text-xs text-white font-light">${entry.score}</p>
+                `;
       tbody.innerHTML += row;
     });
 }
