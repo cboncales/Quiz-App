@@ -16,6 +16,10 @@
   display: none; /* Chrome, Safari */
 }
 
+input[type="radio"] {
+  accent-color: red;
+}
+
 .cursor-grabbing {
   cursor: grabbing;
 }

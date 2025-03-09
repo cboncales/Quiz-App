@@ -408,7 +408,7 @@ function loadQuestion() {
       "bg-gray-200",
       "p-2",
       "rounded",
-      "hover:bg-gray-300",
+      "hover:bg-green-500/80",
       "answer-option"
     );
     button.onclick = () => selectAnswer(button, option, questionData.answer);
@@ -430,11 +430,11 @@ function selectAnswer(button, option, correct) {
   selectedAnswer = option; // Update selected answer
 
   document.querySelectorAll(".answer-option").forEach((btn) => {
-    btn.classList.remove("bg-blue-400", "text-white"); // Reset styling
+    btn.classList.remove("bg-green-500/80", "text-white"); // Reset styling
     btn.classList.add("bg-gray-200");
   });
 
-  button.classList.add("bg-blue-400", "text-white"); // Highlight selection
+  button.classList.add("bg-green-500/80", "text-white"); // Highlight selection
 
   document.getElementById("next-btn").classList.remove("hidden"); // Show Next button
 }
@@ -581,6 +581,7 @@ function loadLeaderboard() {
 
   leaderboard
     .sort((a, b) => b.score - a.score) // Sort by highest score
+    .slice(0, 10) // Get only the top 10
     .forEach((entry, index) => {
       const row = `
                     <p class="p-1 text-xs text-white font-light">${index + 1}</p>
