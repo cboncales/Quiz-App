@@ -311,6 +311,7 @@ let questions = []; // Holds the selected difficulty's questions
 let currentQuestionIndex = 0;
 let score = 0;
 let selectedAnswer = null;
+let userAnswers = []; // Stores user answers
 
 let timer;
 const timeLimit = 100; // Set time limit per question
@@ -448,10 +449,20 @@ function checkAnswer(selected, correct) {
 function nextQuestion() {
   clearInterval(timer); // Stop the timer
 
+  const questionData = questions[currentQuestionIndex];
+
+  // Store user answer and correct answer
+  userAnswers.push({
+    question: questionData.question,
+    selected: selectedAnswer || "No Answer",
+    correct: questionData.answer,
+  });
+
   if (selectedAnswer === questions[currentQuestionIndex].answer) {
     score++; // Only add score if correct answer is selected
   }
 
+  selectedAnswer = null; // Reset selected answer for the next question
   currentQuestionIndex++;
   if (currentQuestionIndex < questions.length) {
     loadQuestion();
@@ -469,12 +480,52 @@ function endQuiz() {
   const difficulty = localStorage.getItem("selectedDifficulty") || "Unknown";
   saveScore(username, difficulty, score);
   loadLeaderboard();
+  displayAnswerFeedback();
+}
+
+function displayAnswerFeedback() {
+  const feedbackContainer = document.getElementById("answer-feedback");
+  feedbackContainer.innerHTML = ""; // Clear previous feedback
+
+  userAnswers.forEach((entry, index) => {
+    const isCorrect = entry.selected === entry.correct;
+    const feedbackItem = document.createElement("div");
+
+    feedbackItem.classList.add(
+      "p-2",
+      "mb-2",
+      "rounded",
+      isCorrect ? "bg-green-200" : "bg-red-200"
+    );
+
+    // Encode HTML properly to prevent it from being stripped or modified
+    const sanitizedQuestion = entry.question
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+    const sanitizedSelected = entry.selected
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+    const sanitizedCorrect = entry.correct
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+
+    feedbackItem.innerHTML = `
+          <p class="font-bold">Q${index + 1}: ${sanitizedQuestion}</p>
+          <p>Your Answer: <span class="${
+            isCorrect ? "text-green-700" : "text-red-700"
+          }">${sanitizedSelected}</span></p>
+          <p>Correct Answer: <span class="text-green-700">${sanitizedCorrect}</span></p>
+        `;
+
+    feedbackContainer.appendChild(feedbackItem);
+  });
 }
 
 function restartQuiz() {
   currentQuestionIndex = 0; // Reset the question index
   score = 0; // Reset the score
   selectedAnswer = null; // Reset the selected answer
+  userAnswers = []; // Reset user answers
 
   // Hide the result screen and show the question screen
   document.getElementById("result-screen").classList.add("hidden");
