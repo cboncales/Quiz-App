@@ -540,6 +540,7 @@ function exitQuiz() {
   currentQuestionIndex = 0;
   score = 0;
   selectedAnswer = null;
+  userAnswers = [];
 
   // Clear the current user from localStorage
   localStorage.removeItem("currentUser");
@@ -548,7 +549,10 @@ function exitQuiz() {
   document.getElementById("result-screen").classList.add("hidden");
   document.getElementById("welcome-screen").classList.remove("hidden");
 
-  // Optional: Clear the username input field
+  // Clear answer feedback when exiting
+  document.getElementById("answer-feedback").innerHTML = "";
+
+  // Clear the username input field
   document.getElementById("username").value = "";
 }
 

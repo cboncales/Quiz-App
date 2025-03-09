@@ -3,3 +3,16 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+#answer-feedback {
+  scrollbar-width: none; /* Firefox */
+  cursor: grab;
+}
+
+#answer-feedback::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.cursor-grabbing {
+  cursor: grabbing;
+}

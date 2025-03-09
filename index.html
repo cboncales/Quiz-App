@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quizaro</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles/styles.css" />
   </head>
   <body class="bg-gray-100 flex flex-col items-center min-h-screen">
     <!-- Header -->
@@ -111,7 +112,10 @@
         <p class="text-lg">Your Score: <span id="score">0</span>/10</p>
 
         <!-- Answer Feedback Section -->
-        <div id="answer-feedback" class="mt-4"></div>
+        <div
+          id="answer-feedback"
+          class="mt-4 max-h-[300px] overflow-y-auto scrollbar-"
+        ></div>
 
         <button
           onclick="restartQuiz()"
@@ -154,5 +158,6 @@
       </section>
     </main>
     <script src="js/quiz.js"></script>
+    <script src="js/scroll.js"></script>
   </body>
 </html>
