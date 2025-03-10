@@ -422,7 +422,7 @@ function loadQuestion() {
 }
 
 function updateProgress() {
-  const progress = (currentQuestionIndex / questions.length) * 100;
+  const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
   document.getElementById("progress").style.width = `${progress}%`;
 }
 
@@ -541,7 +541,7 @@ function exitQuiz() {
   score = 0;
   selectedAnswer = null;
   userAnswers = [];
-  timeLeft = timeLimit;
+  clearInterval(timer); // Stop the timer
 
   // Clear the current user from localStorage
   localStorage.removeItem("currentUser");
@@ -556,6 +556,15 @@ function exitQuiz() {
 
   // Clear the username input field
   document.getElementById("username").value = "";
+}
+
+function openModal() {
+  document.getElementById("exit-modal").classList.remove("hidden");
+  document.getElementById("exit-modal").classList.add("flex");
+}
+
+function closeModal() {
+  document.getElementById("exit-modal").classList.add("hidden");
 }
 
 function saveScore(name, difficulty, score) {
@@ -586,10 +595,18 @@ function loadLeaderboard() {
     .slice(0, 10) // Get only the top 10
     .forEach((entry, index) => {
       const row = `
-                    <p class="p-1 text-xs text-white font-light">${index + 1}</p>
-                    <p class="p-1 text-xs text-white font-light">${entry.name}</p>
-                    <p class="p-1 text-xs text-white font-light">${entry.difficulty}</p>
-                    <p class="p-1 text-xs text-white font-light">${entry.score}</p>
+                    <p class="p-1 text-xs text-white font-light">${
+                      index + 1
+                    }</p>
+                    <p class="p-1 text-xs text-white font-light">${
+                      entry.name
+                    }</p>
+                    <p class="p-1 text-xs text-white font-light">${
+                      entry.difficulty
+                    }</p>
+                    <p class="p-1 text-xs text-white font-light">${
+                      entry.score
+                    }</p>
                 `;
       tbody.innerHTML += row;
     });
