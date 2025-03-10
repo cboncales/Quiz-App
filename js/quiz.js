@@ -314,7 +314,7 @@ let selectedAnswer = null;
 let userAnswers = []; // Stores user answers
 
 let timer;
-const timeLimit = 100; // Set time limit per question
+const timeLimit = 60; // Set time limit per question
 let timeLeft = timeLimit;
 
 function startTimer() {
@@ -541,12 +541,14 @@ function exitQuiz() {
   score = 0;
   selectedAnswer = null;
   userAnswers = [];
+  timeLeft = timeLimit;
 
   // Clear the current user from localStorage
   localStorage.removeItem("currentUser");
 
   // Hide the result screen and show the welcome screen
   document.getElementById("result-screen").classList.add("hidden");
+  document.getElementById("question-screen").classList.add("hidden");
   document.getElementById("welcome-screen").classList.remove("hidden");
 
   // Clear answer feedback when exiting

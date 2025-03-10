@@ -25,7 +25,7 @@
         <p class="text-gray-200 mb-6">
           Test your knowledge of
           <strong>HTML, CSS, and JavaScript</strong> with this interactive quiz.
-          Choose difficulty, Answer 10 multiple-choice questions in 100 seconds
+          Choose difficulty, Answer 10 multiple-choice questions in 60 seconds
           each, track your progress, and see your score and review your answer
           at the end. Ready to challenge yourself? <br />Enter your name and
           let’s get started!
@@ -99,7 +99,10 @@
             style="width: 0%"
           ></div>
         </div>
-        <h2 id="question-text" class="text-xl font-semibold mb-4 text-gray-200">
+        <h2
+          id="question-text"
+          class="text-2xl font-semibold mb-4 text-gray-200"
+        >
           Loading...
         </h2>
         <div id="options" class="space-y-2">
@@ -110,7 +113,14 @@
           class="mt-4 bg-green-500/80 text-white px-4 py-2 rounded-lg hidden"
           id="next-btn"
         >
-          Next
+          Next Question
+        </button>
+        <button
+          onclick="exitQuiz()"
+          class="mt-4 bg-red-500/80 text-white px-4 py-2 rounded-lg"
+          id="next-btn"
+        >
+          Exit Quiz
         </button>
       </section>
 
