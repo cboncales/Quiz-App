@@ -407,6 +407,8 @@ function loadQuestion() {
       "w-full",
       "bg-gray-200",
       "p-2",
+      "min-[375px]:text-sm",
+      "sm:text-base",
       "rounded",
       "hover:bg-green-500/80",
       "answer-option"
@@ -492,6 +494,8 @@ function displayAnswerFeedback() {
     const feedbackItem = document.createElement("div");
 
     feedbackItem.classList.add(
+      "min-[375px]:text-sm",
+      "sm:text-base",
       "p-2",
       "mb-2",
       "rounded",
@@ -587,29 +591,38 @@ function saveScore(name, difficulty, score) {
 
 function loadLeaderboard() {
   const leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || [];
-  const tbody = document.getElementById("leaderboard-body");
-  tbody.innerHTML = "";
+  const leaderboardBodies = document.querySelectorAll("#leaderboard-body"); // Select both elements
 
-  leaderboard
-    .sort((a, b) => b.score - a.score) // Sort by highest score
-    .slice(0, 10) // Get only the top 10
-    .forEach((entry, index) => {
-      const row = `
-                    <p class="p-1 text-xs text-white font-light">${
-                      index + 1
-                    }</p>
-                    <p class="p-1 text-xs text-white font-light">${
-                      entry.name
-                    }</p>
-                    <p class="p-1 text-xs text-white font-light">${
-                      entry.difficulty
-                    }</p>
-                    <p class="p-1 text-xs text-white font-light">${
-                      entry.score
-                    }</p>
-                `;
-      tbody.innerHTML += row;
-    });
+  leaderboardBodies.forEach((tbody) => {
+    tbody.innerHTML = ""; // Clear existing leaderboard
+
+    leaderboard
+      .sort((a, b) => b.score - a.score) // Sort by highest score
+      .slice(0, 10) // Show top 10
+      .forEach((entry, index) => {
+        const row = `
+                  <p class="p-1 text-[10px] lg:text-xs text-white font-light">${
+                    index + 1
+                  }</p>
+                  <p class="p-1 text-[10px] lg:text-xs text-white font-light">${
+                    entry.name
+                  }</p>
+                  <p class="p-1 text-[10px] lg:text-xs text-white font-light">${
+                    entry.difficulty
+                  }</p>
+                  <p class="p-1 text-[10px] lg:text-xs text-white font-light">${
+                    entry.score
+                  }</p>
+              `;
+        tbody.innerHTML += row;
+      });
+  });
+}
+
+function toggleLeaderboard() {
+  const modal = document.getElementById("leaderboard-modal");
+  modal.classList.toggle("hidden");
+  modal.classList.toggle("flex");
 }
 
 function clearScores() {
