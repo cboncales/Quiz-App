@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -21,13 +21,13 @@
       <!-- Welcome section -->
       <section
         id="welcome-screen"
-        class="glass min-[375px]:w-[350px] md:w-[350px] lg:w-[420px] mx-auto p-5"
+        class="glass min-[360px]:w-[350px] md:w-[350px] lg:w-[420px] mx-auto p-5"
       >
         <h1 class="md:text-xl lg:text-2xl text-gray-200 font-bold mb-4">
           Welcome to StackQuiz!
         </h1>
         <p
-          class="min-[375px]:text-[12px] md:text-[12px] lg:text-[16px] text-gray-200 mb-6"
+          class="min-[360px]:text-[12px] md:text-[12px] lg:text-[16px] text-gray-200 mb-6"
         >
           Test your knowledge of
           <strong>HTML, CSS, and JavaScript</strong> with this interactive quiz.
@@ -40,26 +40,26 @@
         <div class="m-3">
           <label
             for="username"
-            class="block min-[375px]:text-[12px] md:text-sm lg:text-lg text-gray-200 font-semibold"
+            class="block min-[360px]:text-[12px] md:text-sm lg:text-lg text-gray-200 font-semibold"
             >Enter Your Name:</label
           >
           <input
             type="text"
             id="username"
-            class="md:w-[200px] lg:min-w-[250px] md:h-[35px] lg:h-[42px] min-[375px]:p-1 md:p-2 border max-[500px]:text-[12px] border-gray-300 rounded mt-2 text-center"
+            class="md:w-[200px] lg:min-w-[250px] md:h-[35px] lg:h-[42px] min-[360px]:p-1 md:p-2 border max-[500px]:text-[12px] border-gray-300 rounded mt-2 text-center"
             placeholder="Your Name"
           />
         </div>
 
         <div class="mt-4">
           <p
-            class="min-[375px]:text-[12px] md:text-sm lg:text-lg text-gray-200 font-semibold mb-2"
+            class="min-[360px]:text-[12px] md:text-sm lg:text-lg text-gray-200 font-semibold mb-2"
           >
             Select Difficulty:
           </p>
           <div class="flex justify-center space-x-4">
             <label
-              class="min-[375px]:text-[12px] md:text-xs lg:text-sm text-gray-200"
+              class="min-[360px]:text-[12px] md:text-xs lg:text-sm text-gray-200"
             >
               <input
                 type="radio"
@@ -71,19 +71,19 @@
               Basic(C)
             </label>
             <label
-              class="min-[375px]:text-[12px] md:text-xs lg:text-sm text-gray-200"
+              class="min-[360px]:text-[12px] md:text-xs lg:text-sm text-gray-200"
             >
               <input type="radio" name="difficulty" value="B" class="mr-1" />
               Intermediate(B)
             </label>
             <label
-              class="min-[375px]:text-[12px] md:text-xs lg:text-sm text-gray-200"
+              class="min-[360px]:text-[12px] md:text-xs lg:text-sm text-gray-200"
             >
               <input type="radio" name="difficulty" value="A" class="mr-1" />
               Advanced(A)
             </label>
             <label
-              class="min-[375px]:text-[12px] md:text-xs lg:text-sm text-gray-200"
+              class="min-[360px]:text-[12px] md:text-xs lg:text-sm text-gray-200"
             >
               <input type="radio" name="difficulty" value="S" class="mr-1" />
               Insane(S)
@@ -92,7 +92,7 @@
         </div>
 
         <button
-          class="glass hover:bg-green-500/80 text-green-500 hover:text-white min-[375px]:px-2 md:px-3 lg:px-4 min-[375px]:py-1 md:py-1 lg:py-2 min-[375px]:text-sm md:text-[14px] lg:text-[16px] rounded-lg mt-4"
+          class="glass hover:bg-green-500/80 text-green-500 hover:text-white min-[360px]:px-2 md:px-3 lg:px-4 min-[360px]:py-1 md:py-1 lg:py-2 min-[360px]:text-sm md:text-[14px] lg:text-[16px] rounded-lg mt-4"
           onclick="startQuiz()"
         >
           Start Quiz
@@ -102,17 +102,17 @@
       <!-- Question section -->
       <section
         id="question-screen"
-        class="glass min-[375px]:w-[310px] md:w-[330px] lg:w-[400px] mx-auto p-5 hidden"
+        class="glass min-[360px]:w-[310px] md:w-[330px] lg:w-[400px] mx-auto p-5 hidden"
       >
         <div class="flex justify-between items-center mb-3">
           <div
-            class="mb-1 text-left min-[375px]:text-sm sm:text-base font-medium text-gray-200"
+            class="mb-1 text-left min-[360px]:text-sm sm:text-base font-medium text-gray-200"
           >
             Question <span id="question-number">1</span>/10
           </div>
           <div
             id="timer"
-            class="text-red-500 min-[375px]:text-sm sm:text-base font-bold mb-1"
+            class="text-red-500 min-[360px]:text-sm sm:text-base font-bold mb-1"
           ></div>
         </div>
 
@@ -135,14 +135,14 @@
         <div class="flex justify-between">
           <button
             onclick="nextQuestion()"
-            class="mt-4 bg-green-700 hover:bg-green-500 min-[375px]:text-xs md:text-sm lg:text-base text-white px-4 py-2 rounded-lg hidden"
+            class="mt-4 bg-green-700 hover:bg-green-500 min-[360px]:text-xs md:text-sm lg:text-base text-white px-4 py-2 rounded-lg hidden"
             id="next-btn"
           >
             Next Question
           </button>
           <button
             onclick="openModal()"
-            class="mt-4 bg-red-700 hover:bg-red-500 min-[375px]:text-xs md:text-sm lg:text-base text-white px-4 py-2 rounded-lg ml-auto"
+            class="mt-4 bg-red-700 hover:bg-red-500 min-[360px]:text-xs md:text-sm lg:text-base text-white px-4 py-2 rounded-lg ml-auto"
             id="next-btn"
           >
             Exit Quiz
@@ -156,7 +156,7 @@
         class="hidden fixed inset-0 bg-black bg-opacity-50 items-center justify-center"
       >
         <div
-          class="bg-white min-[375px]:p-4 sm:p-6 rounded-lg text-center relative min-[375px]:w-72 sm:w-80"
+          class="bg-white min-[360px]:p-4 sm:p-6 rounded-lg text-center relative min-[360px]:w-72 sm:w-80"
         >
           <!-- Close Button -->
           <button
@@ -166,20 +166,20 @@
             &times;
           </button>
 
-          <p class="min-[375px]:text-sm sm:text-lg font-semibold mb-4">
+          <p class="min-[360px]:text-sm sm:text-lg font-semibold mb-4">
             Are you sure you want to exit?
           </p>
 
           <button
             onclick="restartQuiz(); closeModal()"
-            class="bg-green-700 hover:bg-green-500 min-[375px]:text-xs sm:text-base text-white px-4 py-2 rounded-lg mr-2"
+            class="bg-green-700 hover:bg-green-500 min-[360px]:text-xs sm:text-base text-white px-4 py-2 rounded-lg mr-2"
           >
             Try Again
           </button>
 
           <button
             onclick="exitQuiz(); closeModal()"
-            class="bg-red-700 hover:bg-red-500 min-[375px]:text-xs sm:text-base text-white px-4 py-2 rounded-lg"
+            class="bg-red-700 hover:bg-red-500 min-[360px]:text-xs sm:text-base text-white px-4 py-2 rounded-lg"
           >
             Return Home
           </button>
@@ -189,7 +189,7 @@
       <!-- Result section -->
       <section
         id="result-screen"
-        class="glass min-[375px]:w-[310px] md:w-[330px] lg:w-[400px] mx-auto p-5 hidden"
+        class="glass min-[360px]:w-[310px] md:w-[330px] lg:w-[400px] mx-auto p-5 hidden"
       >
         <h2
           class="sm:text-base md:text-xl lg:text-2xl font-bold mb-4 text-gray-200"
@@ -203,18 +203,18 @@
         <!-- Answer Feedback Section -->
         <div
           id="answer-feedback"
-          class="mt-4 min-[375px]:max-h-[260px] md:max-h-[270px] lg:max-h-[300px] overflow-y-auto scrollbar-"
+          class="mt-4 min-[360px]:max-h-[260px] md:max-h-[270px] lg:max-h-[300px] overflow-y-auto scrollbar-"
         ></div>
 
         <button
           onclick="restartQuiz()"
-          class="min-[375px]:mt-2 md:mt-3 lg:mt-4 bg-green-700 hover:bg-green-500 min-[375px]:text-xs md:text-sm lg:text-base text-white px-4 py-2 rounded-lg"
+          class="min-[360px]:mt-2 md:mt-3 lg:mt-4 bg-green-700 hover:bg-green-500 min-[360px]:text-xs md:text-sm lg:text-base text-white px-4 py-2 rounded-lg"
         >
           Try Again
         </button>
         <button
           onclick="exitQuiz()"
-          class="min-[375px]:mt-2 md:mt-3 lg:mt-4 bg-red-700 hover:bg-red-500 min-[375px]:text-xs md:text-sm lg:text-base text-white px-4 py-2 rounded-lg"
+          class="min-[360px]:mt-2 md:mt-3 lg:mt-4 bg-red-700 hover:bg-red-500 min-[360px]:text-xs md:text-sm lg:text-base text-white px-4 py-2 rounded-lg"
         >
           Return Home
         </button>
@@ -265,7 +265,7 @@
 
       <!-- Leaderboard (Visible on Larger Screens) -->
       <section
-        class="glass min-[375px]:px-1 md:px-2 lg:px-5 min-[375px]:pb-2 md:pb-3 lg:pb-5 md:pt-2 lg:pt-3 rounded-lg border shadow-lg w-48 lg:w-60 xl:w-72 text-center absolute top-0 right-0 mt-3 min-[375px]:mr-1 md:mr-1 lg:mr-3 hidden md:block"
+        class="glass min-[360px]:px-1 md:px-2 lg:px-5 min-[360px]:pb-2 md:pb-3 lg:pb-5 md:pt-2 lg:pt-3 rounded-lg border shadow-lg w-48 lg:w-60 xl:w-72 text-center absolute top-0 right-0 mt-3 min-[360px]:mr-1 md:mr-1 lg:mr-3 hidden md:block"
       >
         <h1
           class="max-[500px]:text-base lg:text-2xl text-xl text-white max-[500px]:mb-1 mb-2 border-b"
@@ -301,7 +301,7 @@
       <footer
         class="fixed bottom-0 left-0 w-full bg-transparent text-white text-center md:text-end"
       >
-        <p class="min-[375px]:text-[9px] md:text-[9px] lg:text-xs">
+        <p class="min-[360px]:text-[9px] md:text-[9px] lg:text-xs">
           &copy; 2025 StackQuiz. All rights reserved.
         </p>
       </footer>
